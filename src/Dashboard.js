@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
-import { Form, Button, Container } from "react-bootstrap";
-const App = () => {
- let socket;
+import { Container } from "react-bootstrap";
+const Dashboard = () => {
   useEffect(() => {
-    socket = io("localhost:5000");
+    
+    let socket = io("https://socketioserverv.herokuapp.com/");
     socket.on("new-remote-operations", function (data) {
       setCoca(data.coca);
       setBirra(data.birra);
@@ -15,14 +15,7 @@ const App = () => {
   const [coca, setCoca] = useState("");
   const [birra, setBirra] = useState("");
   const [sprite, setSprite] = useState("");
-  const sendMessage = (e) => {
-    e.preventDefault();
-    socket.emit("new-operations", {
-      coca: coca,
-      birra: birra,
-      sprite: sprite,
-    });
-  };
+
   return (
     <div>
       <Container>
@@ -33,4 +26,4 @@ const App = () => {
     </div>
   );
 };
-export default App;
+export default Dashboard;

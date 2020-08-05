@@ -6,7 +6,7 @@ import { Form, Button, Container } from "react-bootstrap";
 let socket;
 const User = () => {
   useEffect(() => {
-    socket = io("localhost:5000");
+    socket = io("https://socketioserverv.herokuapp.com/");
     socket.on('new-remote-operations', function (data) {
       setData(data.coca)
       console.log(data)

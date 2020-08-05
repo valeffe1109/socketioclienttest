@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./App.css";
 import User from './User';
 import Dashboard from './Dashboard'
@@ -7,9 +7,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
-let socket;
 const App = () => {
   return (
     <Router>
